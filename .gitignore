@@ -23,3 +23,7 @@ htmlcov/
 # IDE settings
 .vscode/
 .idea/
+
+#windows
+desktop.ini
+anotacoes.txt
