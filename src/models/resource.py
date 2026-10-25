@@ -2,16 +2,18 @@ import enum
 import uuid
 from decimal import Decimal
 from typing import TYPE_CHECKING
+
 from sqlalchemy import CheckConstraint, Enum, ForeignKey, Numeric, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from src.db.base import Base, TimestampMixin
 
 if TYPE_CHECKING:
     from src.models.user import User
 
 
-class ResourceCategory(str, enum.Enum):
+class ResourceCategory(enum.StrEnum):
     """Categorization for relief supply cataloging."""
 
     CONSUMABLE = "CONSUMABLE"
@@ -20,7 +22,7 @@ class ResourceCategory(str, enum.Enum):
     FINANCIAL = "FINANCIAL"
 
 
-class ResourceStatus(str, enum.Enum):
+class ResourceStatus(enum.StrEnum):
     """Lifecycle states of an inventory resource."""
 
     AVAILABLE = "AVAILABLE"

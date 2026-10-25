@@ -1,16 +1,18 @@
 import enum
 import uuid
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
+
 from sqlalchemy import Enum, ForeignKey, String
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from src.db.base import Base, TimestampMixin
 
 if TYPE_CHECKING:
     from src.models.user import User
 
 
-class AuditAction(str, enum.Enum):
+class AuditAction(enum.StrEnum):
     """Categorization of audited system events."""
 
     CREATE = "CREATE"

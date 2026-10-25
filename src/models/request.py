@@ -2,16 +2,18 @@ import enum
 import uuid
 from decimal import Decimal
 from typing import TYPE_CHECKING
+
 from sqlalchemy import Enum, ForeignKey, Numeric, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from src.db.base import Base, TimestampMixin
 
 if TYPE_CHECKING:
     from src.models.user import User
 
 
-class UrgencyLevel(str, enum.Enum):
+class UrgencyLevel(enum.StrEnum):
     """Triage urgency classification for field assistance requests."""
 
     LOW = "LOW"
@@ -20,7 +22,7 @@ class UrgencyLevel(str, enum.Enum):
     CRITICAL = "CRITICAL"
 
 
-class AssistanceCategory(str, enum.Enum):
+class AssistanceCategory(enum.StrEnum):
     """Domain category for the emergency assistance needed."""
 
     FOOD_WATER = "FOOD_WATER"
@@ -30,7 +32,7 @@ class AssistanceCategory(str, enum.Enum):
     LOGISTICS = "LOGISTICS"
 
 
-class RequestStatus(str, enum.Enum):
+class RequestStatus(enum.StrEnum):
     """Operational lifecycle stages of an assistance request."""
 
     PENDING = "PENDING"

@@ -1,0 +1,21 @@
+# Target Python version
+target-version = "py313"
+
+# Line length standard matching modern readability guidelines
+line-length = 100
+
+[lint]
+# Selected rule sets:
+# E/W: Pycodestyle errors and warnings
+# F: Pyflakes (detects unused imports, undefined variables)
+# I: Isort (standardizes alphabetical import sorting)
+# B: Flake8-bugbear (catches common bugs and design pitfalls)
+# UP: Pyupgrade (enforces modern Python 3.13 syntax idioms)
+select = ["E", "W", "F", "I", "B", "UP"]
+
+# Rules to ignore (if any specific exceptions are warranted)
+ignore = []
+
+[lint.isort]
+# Treat 'src' as a first-party package for organized imports
+known-first-party = ["src"]

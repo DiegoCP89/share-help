@@ -1,12 +1,14 @@
 import enum
 import uuid
+
 from sqlalchemy import Boolean, Enum, String
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
+
 from src.db.base import Base, TimestampMixin
 
 
-class UserRole(str, enum.Enum):
+class UserRole(enum.StrEnum):
     """User operational roles for RBAC authorization."""
 
     VICTIM = "VICTIM"

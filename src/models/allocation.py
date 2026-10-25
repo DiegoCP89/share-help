@@ -2,9 +2,11 @@ import enum
 import uuid
 from decimal import Decimal
 from typing import TYPE_CHECKING
+
 from sqlalchemy import CheckConstraint, Enum, ForeignKey, Numeric, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from src.db.base import Base, TimestampMixin
 
 if TYPE_CHECKING:
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     from src.models.user import User
 
 
-class AllocationStatus(str, enum.Enum):
+class AllocationStatus(enum.StrEnum):
     """Lifecycle stages of a resource allocation to a request."""
 
     PROPOSED = "PROPOSED"
