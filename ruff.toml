@@ -13,8 +13,12 @@ line-length = 100
 # UP: Pyupgrade (enforces modern Python 3.13 syntax idioms)
 select = ["E", "W", "F", "I", "B", "UP"]
 
-# Rules to ignore (if any specific exceptions are warranted)
+# Rules to ignore globally
 ignore = []
+
+[lint.per-file-ignores]
+# Migration scripts are auto-generated; ignore line-length and union syntax checks
+"migrations/versions/*" = ["E501", "UP007", "UP035"]
 
 [lint.isort]
 # Treat 'src' as a first-party package for organized imports
